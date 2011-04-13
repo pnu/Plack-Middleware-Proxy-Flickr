@@ -1,0 +1,33 @@
+NAME
+    Plack::Middleware::Proxy::Flickr - Proxy images from Flickr
+
+VERSION
+    version 0.001
+
+SYNOPSIS
+        # example1.psgi
+    
+        builder {
+            enable 'Image::Scale', memory_limit => 50_000_000;
+            enable 'Proxy::Flickr', apikey => 'xxx', apisecret => 'yyy';
+            Plack::App::Proxy->new();
+        };
+
+    This module is just a proof of concept. Do not use!
+
+    Request to /nnn_200x200.jpg will fetch image nnn from Flickr, scale it
+    to 200x200 size and convert to jpg, on the fly.
+
+METHODS
+  notfound
+    Return 404 status to the caller.
+
+AUTHOR
+    Panu Ervamaa <pnu@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Panu Ervamaa.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
